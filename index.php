@@ -54,4 +54,3 @@ $usuario = [
 ];
 
 var_dump($usuario);
-echo($usuario);
