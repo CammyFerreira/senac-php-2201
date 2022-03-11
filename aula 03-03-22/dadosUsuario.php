@@ -10,7 +10,7 @@
     <form action="recebeDadosUsuario.php" method="post">
         <input type="text" name="matricula" placeholder="Matrícula">
         <br><br>
-        <input type="text" name="aluno" placeholder="Nome do aluno">
+        <input type="number" name="aluno" placeholder="Nome do aluno">
         <br><br>
         <input type="submit" value="Salvar">
     </form>
