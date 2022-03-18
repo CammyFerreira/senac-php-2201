@@ -1,0 +1,21 @@
+SELECT - selecione
+INSERT - inserir
+//primeiro é posição e o segundo é quantidade:
+SELECT id, descricao FROM tarefas LIMIT 4,2;
+SELECT id, descricao FROM tarefas WHERE id = 7;
+SELECT id, descricao FROM tarefas WHERE descricao LIKE 'Tomar%';
+
+//qualquer a com alguma coisa mais espaço
+SELECT id, descricao FROM tarefas WHERE descricao LIKE '%a_ %';
+
+//atualizar dado; Sempre usar o WHERE antes de dar update
+UPDATE tarefas SET descricao = 'Churrasco!' WHERE id = 6;
+
+//deletar; sempre usar o WHERE antes de dar delete
+DELETE FROM tarefas WHERE id = 6;
+
+//backup
+ mysqldump -u root -p php > backup_bancodedados.sql
+
+ // tee relatorioTarefas.csv
+ //notee
