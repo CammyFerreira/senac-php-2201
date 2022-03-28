@@ -6,8 +6,10 @@
 Comentário de bloco
 */
 
+//constante em php
 define('XPTO', 'Valor sempre igual');
 
+//exibe algo na tela
 echo XPTO;
 
 $num = 2;
@@ -41,9 +43,11 @@ $diaSemana = [ 1 => 'Domingo',
 $contatos = ['Carol', 'Rebeca', 'Robson', 'Pedro'];
 
 echo "<pre>";
+//var_dump - Mostra informações sobre a variável
 var_dump($diaSemana);
 
 echo "<br>Hoje é {$diaSemana[10]}";//interpolação com {}
+//concatenação com o ponto .
 echo "<br>Hoje é " . $diaSemana[3];
 
 
