@@ -6,9 +6,10 @@
 function cadastraAluno(array $aluno): bool
 {
 //função que cria um banco de dados
-    $f = fopen('alunos.csv', 'a');
-    $escreveu = fwrite($f, "{$aluno['matricula']};\" {$aluno['nome']}\"");
-    fclose($f);
+    $f = fopen('alunos.csv', 'a');//Abre um arquivo ou URL
+    $escreveu = fwrite($f, "{$aluno['matricula']};\" {$aluno['nome']}\"");//escreve o conteúdo da string para o stream de arquivo apontado pelo fopen().
+
+    fclose($f);//Fecha um ponteiro de arquivo aberto
 
     if($escreveu){
         return true;

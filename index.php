@@ -9,6 +9,7 @@ echo '<table border=1>
         <td>ID</td><td>NOME</td><td>SENHA</td>
     </tr>';
 
+    //forEach é uma estrutura de repetição para vetores
 foreach ($usuario as $id => $valor) {
     
     echo '<tr>';
