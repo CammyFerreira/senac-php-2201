@@ -19,7 +19,7 @@ $alunos = [];
 
     $f = fopen('alunos.csv', 'r');
 
-    while($linha = fgets($f)){
+    while($linha = fgets($f)){//Lê uma linha de um ponteiro de arquivo
 
         var_dump($linha);
         echo"<br>";
