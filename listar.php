@@ -11,7 +11,7 @@ echo "<table border='1'>
 
 while($linha = fgets($f)){
 
-        $campos = explode(';', $linha);
+        $campos = explode(';', $linha); //Divide uma string em strings
         $nome = $campos[0];
         $rep = $campos[1];
         
