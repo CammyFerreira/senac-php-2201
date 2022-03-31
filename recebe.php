@@ -2,7 +2,8 @@
 
 require 'listar.php';
 
-$nome = $_POST['nome'];
+$nome = $_POST['nome'];// é uma variável super global
+//PHP que é usada para coletar dados de formulário após enviar um formulário HTML com method="post". $_POST também é amplamente usado para passar variáveis.
 $numero = $_POST['numero'];
 
 echo "$nome, Seja Bem-Vindo!";
