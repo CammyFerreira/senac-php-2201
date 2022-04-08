@@ -2,7 +2,7 @@
 
 //ligar o php ao banco de dados
 
-$dsn = 'mysql:dbname=phpLinguagemServidor;host=localhost';
+$dsn = 'mysql:dbname=php;host=localhost';
 $user = "root";
 $pass = "";
 
@@ -10,7 +10,7 @@ $bd = new PDO($dsn, $user, $pass);
 // FIM da conexão
 
 
-$stmt = $bd-> query('SELECT id, descricao FROM Tarefa');//fazer consulta
+$stmt = $bd-> query('SELECT id, descricao FROM tarefas');//fazer consulta
 
 $stmt-> execute(); //executar consulta
 

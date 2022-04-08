@@ -1,24 +1,26 @@
 <?php
 require 'conexao.php';
 
-$stmt = $bd->query('SELECT id, descricao FROM Tarefa');//preparou a consulta
+$stmt = $bd->query('SELECT id, descricao FROM tarefas');//preparou a consulta
 
 $stmt->execute();//executou
 
-echo "<table border = '1'> 
+echo "<form method='post'>
+
+<table border = '1'> 
             <tr> 
-                <td>ID</td><td>DESCRICAO</td>
+                <td>ID</td><td>DESCRICAO</td><td>APAGAR/EDITAR</td>
              </tr>";
 
-
-//recupera primeiro registro, se colocar de novo, sempre vai resgatar a primeira inserção
-/*colocou a repetição da exibição dos registros*/while($registro = $stmt ->fetch(PDO::FETCH_ASSOC)){
+while($registro = $stmt ->fetch(PDO::FETCH_ASSOC)){
 
 
 echo "<tr>
         <td>{$registro['id']}</td>
         <td>{$registro['descricao']}</td>
+        <td><button name='id' formaction='editarTarefa.php' value='{$registro['id']}'>Editar</button></td>
+        <td><button name='id' formaction='apagaTarefa.php' value='{$registro['id']}'>Apagar</button></td>
         </tr>";
 }
 
-    echo "</table>";
+    echo "</table></form><a href='formulario.php'>Voltar</a>";

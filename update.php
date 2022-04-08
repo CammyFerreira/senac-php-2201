@@ -8,7 +8,7 @@
 
 //ligar o php ao banco de dados
 
-$dsn = 'mysql:dbname=phpLinguagemServidor;host=localhost';
+$dsn = 'mysql:dbname=php;host=localhost';
 $user = "root";
 $pass = "";
 
@@ -17,7 +17,7 @@ $bd = new PDO($dsn, $user, $pass);
 
 
 //para atualizar registro na tabela
-$trocou = $bd->exec('UPDATE Tarefa SET descricao = "Estudar php" WHERE id=1');
+$trocou = $bd->exec('UPDATE tarefas SET descricao = "Estudar php" WHERE id=1');
 //FIM atualização de registro
 
 if( $trocou ){
