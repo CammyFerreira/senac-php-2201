@@ -9,12 +9,12 @@
 <body>
     <div>
         <h2>CRUD Tarefas</h2>
-    <form action="gravaTarefa.php" method="post">
+    <form action="gravaTarefa.php" method="post" enctype="multipart/form-data">
         <label for="tarefa">Nova Inserção:</label>
         <input type="text" id="tarefa" name="tarefa">
         <br>
-        <input type="submit" value="Inserir"> 
-        
+        <input type="file" name="figura">
+        <input type="submit" value="Inserir"><br><br> 
     </form>
     </div>
   <a href="listarTarefa.php"></a>

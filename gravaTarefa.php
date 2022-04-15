@@ -1,16 +1,23 @@
 <?php
+
+require 'controleDeAcesso.php';
+
 require 'conexao.php'; //busca o código para eu não ter que repetir
 
-$texto = $_POST['tarefa'];//isso foi digitado pelo usuário. o dado ainda é inseguro
+$tarefa = $_POST['tarefa'];//isso foi digitado pelo usuário. o dado ainda é inseguro
+
+if($_FILES['figuras']['error'] == 0 && $_FILES['figuras']['size'] > 0){
+    move_uploaded_file($_FILES['figura']['tmp_name'], "imagens/{$_FILES['figura']['name']}");
+}
 
 $stmt = $bd->prepare('INSERT INTO tarefas (descricao) VALUES (:tarefa)');//statement prepara a consulta
 
-$stmt->bindParam(':tarefa' , $texto);//se uma coisa potencialmente perigosa for digitada pelo usuário, ele será analisado mas não danificará o banco. fica gravado como dado apenas
+$stmt->bindParam(':tarefa' , $tarefa);//se uma coisa potencialmente perigosa for digitada pelo usuário, ele será analisado mas não danificará o banco. fica gravado como dado apenas
 
 //isso insere na tabela de tarefas e se der certo, avisa o usuário e senão, avisa também
-if( $bd->exec("INSERT INTO tarefas (descricao) VALUES ('$texto')")){
+if( $bd->exec("INSERT INTO tarefas (descricao) VALUES ('$tarefa')")){
 
-    echo "$texto gravado"; 
+    echo "$tarefa gravado"; 
 } else {
     echo "nada foi gravado.";
 }

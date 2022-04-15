@@ -1,5 +1,6 @@
 <?php
 require 'conexao.php';
+require 'controleDeAcesso.php'; 
 
 $stmt = $bd->query('SELECT id, descricao FROM tarefas');//preparou a consulta
 

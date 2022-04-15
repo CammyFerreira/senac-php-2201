@@ -1,5 +1,6 @@
 <?php
 require 'conexao.php';
+require 'controleDeAcesso.php';
 
 $stmt = $bd->query('SELECT id, descricao FROM usuarios');//preparou a consulta
 
@@ -24,4 +25,4 @@ echo "<tr>
         </tr>";
 }
 
-    echo "</table></form><a href='formUsuario.php'>Voltar</a>";
+    echo "</table></form><a href='formUsuario.php'>Menu</a>";
