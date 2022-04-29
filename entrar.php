@@ -2,8 +2,16 @@
 session_start();
 require_once 'conexao.php';
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+//trim - tira qualuqer espaço que tiver na frente ou atrás de uma String
+$email = trim($_POST['email'] ?? '');
+$senha = trim($_POST['senha'] ?? '');
+
+if(empty($email || empty($senha))){
+   
+    header('location: index.php');
+
+}
+
 
 $stmt = $bd -> prepare("SELECT senha FROM usuarios WHERE id = :email");
 //substituição do label pelo valor
@@ -19,5 +27,5 @@ if(password_verify($senha, $val['senha'])){
     header('location: index.php');
     
 }else{
-    echo "Credenciais inválidas";
+    echo "Credenciais inválidas<br><br><a href='index.php'>Voltar</a>";
 }
