@@ -15,6 +15,7 @@ require 'controleDeAcesso.php';
         <ul>
             <li><a href="listarUsuarios.php">Usuários</a></li>
             <li><a href="listarTarefa.php">Tarefas</a></li>
+            <li><a href="lixeira.php">Lixeira</a></li>
             <li><a href="logout.php">Sair</a></li>
 </body>
 </html>
