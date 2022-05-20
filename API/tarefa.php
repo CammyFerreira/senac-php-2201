@@ -50,6 +50,7 @@ if($metodo == 'POST' || $metodo == 'PUT'){
     
     $tarefa = json_decode(file_get_contents('php//input'));
     
+    //faz a validação vendo se a descrição e imagem estão preenchidas
     if(json_last_error() != JSON_ERROR_NONE){
 
         echo json_encode(['erro' => 'JSON inválido']);
@@ -98,7 +99,37 @@ if($metodo == 'DELETE'){
 
 }
 
+//Se o requisitante usar o método PATCH
+if($metodo == 'PATCH'){
+    $tarefa = json_decode(file_get_contents('php//input'));
+    
+    if(json_last_error() != JSON_ERROR_NONE){
 
+        echo json_encode(['erro' => 'JSON inválido']);
+        exit(http_response_code(400));
+    }
+    
+    if(!isset($tarefa->descricao) || !isset($tarefa->imagem)){
+        
+        echo json_encode(['erro' => 'Campos Obrigatórios: descricao e imagem']);
+        exit(http_response_code(400));
+    }
+
+    $stmt = $bd->prepare('UPDATE tarefas SET descricao = :descricao, imagem = :imagem WHERE id = :id');
+    $stmt->bindParam(':descricao', $tarefa->descricao);
+    $stmt->bindParam(':imagem', $tarefa->imagem);
+    $stmt->bindParam(':id', $tarefa->id);
+    
+    if($stmt->execute()){
+        exit(http_response_code(200));
+    }else{
+        exit(http_response_code()200);
+    }
+   
+
+    
+}
+//FIM se o requisitante usar o método PATCH
 
 //Retorna código de erro método não permitido
 http_response_code(405);
